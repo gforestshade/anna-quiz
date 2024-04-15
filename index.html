@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>アンナクイズ</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="app">
+        <p>2023年 女の子赤ちゃんの名前ランキング (たまひよ調べ)</p>
+        <p>多い←　　　　→少ない</p>
+        <button v-for="item in maruList" v-text="item.name" v-bind:value="item.answerId" v-on:click="onAnswer" ></button>
+
+        <p v-if="!owari"><strong>{{appendList[question]}}</strong> の入る位置を選んでください</p>
+        <p v-else>おめ</p>
+
+        <p v-if="show=='correct'">正解 <button v-on:click="onNext">次へ</button></p>
+        <p v-if="show=='wrong'">ちがう</p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
